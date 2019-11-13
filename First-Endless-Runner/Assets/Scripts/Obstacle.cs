@@ -19,6 +19,9 @@ public class Obstacle : MonoBehaviour
             other.GetComponent<Player>().health -= damage;
             Debug.Log("Player Health: " + other.GetComponent<Player>().health);
             Destroy(gameObject);
+        } else if (other.CompareTag("ObstacaleDeleter"))
+        {
+            Destroy(gameObject);
         }
     }
 }

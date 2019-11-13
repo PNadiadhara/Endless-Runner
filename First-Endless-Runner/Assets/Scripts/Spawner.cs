@@ -11,7 +11,8 @@ public class Spawner : MonoBehaviour
     public float decreaseTime;
     public float minTime = 0.65f;
     
-    private void Update() {
+    private void Update()
+    {
         if (timeBtwSpawn <= 0)
         {
             int rand = Random.RandomRange(0, obstaclePatterns.Length);
