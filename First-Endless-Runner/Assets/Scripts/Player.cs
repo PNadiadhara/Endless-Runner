@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
+
+    
 {
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
+    public GameObject effect;
 
     private Vector2 targetPos;
     public float YIncrement;
@@ -32,11 +36,13 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight)
-        {            
+        {
+            Instantiate(effect, transform.position, Quaternion.identity);
             targetPos = new Vector2(transform.position.x,transform.position.y + YIncrement);
             
         } else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight)
         {
+            Instantiate(effect, transform.position, Quaternion.identity);
             targetPos = new Vector2(transform.position.x, transform.position.y - YIncrement); 
         }
     }

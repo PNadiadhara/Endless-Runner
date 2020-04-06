@@ -6,6 +6,7 @@ public class Obstacle : MonoBehaviour
 {
     public int damage = 1;
     public float speed;
+    public GameObject effect;
 
     private void Update()
     {
@@ -15,6 +16,7 @@ public class Obstacle : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) 
         {
+            Instantiate(effect, transform.position, Quaternion.identity);
             //player takes damage
             other.GetComponent<Player>().health -= damage;
             Debug.Log("Player Health: " + other.GetComponent<Player>().health);
