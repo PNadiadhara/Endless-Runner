@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class Player : MonoBehaviour
 
     
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
 
     public GameObject effect;
 
@@ -22,17 +20,24 @@ public class Player : MonoBehaviour
     public float maxHeight;
     public float minHeight;
     public int health = 3;
+    // health
+    public Text healthText;
 
-
+    public GameObject gameOver;
+    
+    
     // Update is called once per frame
     void Update()
     {
+        healthText.text = health.ToString(); 
+          
         //Character sprite glides on screen instead of snapping
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
         if (health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            gameOver.SetActive(true);
+            Destroy(gameObject);
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight)
