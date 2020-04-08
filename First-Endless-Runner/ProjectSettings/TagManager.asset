@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ObstacaleDeleter
+  - Obstacle
   layers:
   - Default
   - TransparentFX

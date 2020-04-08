@@ -12,8 +12,9 @@ public class Player : MonoBehaviour
    
 
     public GameObject effect;
-
     private Vector2 targetPos;
+    private shake shake;
+
     public float YIncrement;
     public float speed;
     //ScreenLimits
